@@ -1,0 +1,5 @@
+<%= form_tag AppConfig.paypal_url do %>
+	<%= hidden_field_tag :cmd, "_s-xclick" %>
+	<%= hidden_field_tag :encrypted, product.paypal_url(products_url, notification_products_url) %>
+	<p><%= submit_tag "Buy Now!!", :class => "btn primary"%></p>
+<% end %>

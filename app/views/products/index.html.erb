@@ -1,0 +1,27 @@
+<h1>Listing products</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th width="10%">Unit price</th>
+      <th width="10%"></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= number_to_currency(product.unit_price, :unit => "$") %></td>
+        <td><%= link_to 'Show', product %></td>
+      	<td><%= link_to image_tag('btn_xpressCheckout.gif'), product.paypal_url(products_url) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
